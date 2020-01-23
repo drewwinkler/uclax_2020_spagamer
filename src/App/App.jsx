@@ -1,14 +1,18 @@
 import React from 'react';
-import './App.scss'
+import './App.scss';
+import Header from './Header/Header.jsx';
+import Nav from  './Nav/Nav.jsx';
+import Main from './Main/Main.jsx';
+import Footer from './Footer/Footer.jsx'
 
 const App = () => {
 
     return (
-        <div className='wrapper'>
-        <header className='header'>HEADER FOR THE APP</header>
-        <nav className='nav'>NAV FOR THE APP</nav>
-        <main className='main'>MAIN FOR THE APP</main>
-        <footer className='footer'>FOOTER FOR THE APP</footer>
+        <div className='Wrapper'>
+        <Header />
+        <Nav />
+        <Main />
+        <Footer />
         </div>
     )
 }

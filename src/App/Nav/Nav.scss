@@ -1,0 +1,48 @@
+.Nav {
+    background: aqua;
+    padding: 20px;
+    border: solid 5px black;
+    margin-top: 5px;
+
+    .hamburger {
+        background-color: grey ;
+    }
+
+    .links {
+        background-color: Grey;
+
+        text-align: center;
+
+        a {
+            background-color: aqua;
+            color: white;
+
+            display: block;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 10px;
+            border: solid 2px black;
+
+            text-decoration: none;
+            text-transform:uppercase;
+
+            transition: all .2s;
+
+            &:hover {
+                background-color: grey;
+            }
+        }
+
+    }
+
+}
+
+@media screen and (min-width: 600px) {
+    .Nav {
+        .links {
+            a {
+                display: inline-block;
+            }
+        }
+    }
+}

@@ -1,26 +1,12 @@
-.wrapper {
-    border: solid 10px aqua;
-    padding: 20px;
-    margin: 25px auto;
+body {
     background-color: grey;
 }
 
-.header {   background: aqua;
-            padding: 20px;
-            border: solid 5px black; }
 
-.nav {      background: aqua;
-            padding: 10px;
-            margin: 15px;
-            border: solid 5px black;}
 
-.main {     background: aqua;
-            padding: 100px;
-            margin: 200px;
-            border: solid 5px black;
-
-}    
-
-.footer {   background: aqua;
-            padding: 20px;
-            border: solid 5px black;}
+.Wrapper {
+    padding: 20px;
+    margin: 25px auto;
+    background-color: white;
+    border-radius: 5px;
+}
