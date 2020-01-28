@@ -1,15 +1,35 @@
 .Nav {
-    background: aqua;
+    background: grey;
     padding: 20px;
     border: solid 5px black;
     margin-top: 5px;
 
     .hamburger {
-        background-color: grey ;
+        background-color: white ;
+        display: block;
+
+        width: 30px;
+        height: 30px;
+
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: black;
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+
+        &:hover {
+            color: grey;
+            cursor: pointer;
+        }
+
     }
 
     .links {
-        background-color: Grey;
+        background-color: grey;
 
         text-align: center;
 
@@ -39,6 +59,9 @@
 
 @media screen and (min-width: 600px) {
     .Nav {
+        .hamburger{
+            display: none;
+        }
         .links {
             a {
                 display: inline-block;

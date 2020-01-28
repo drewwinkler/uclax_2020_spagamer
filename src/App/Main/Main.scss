@@ -1,7 +1,50 @@
-.Main {     background: aqua;
+.Main {     
+    background: aqua;
     padding: 100px;
     margin-top: 30px;
     margin-bottom: 30px;
     border: solid 5px black;
 
+    min-height: 300px;
+
+    .columns {
+        background-color: grey;
+        padding: 10px;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .col {
+            padding: 10px;
+            color: white;
+
+            width: 100%;
+        }
+
+        .col1 { background-color: aqua; }
+        .col2 { background-color: aqua; }
+        .col3 { background-color: aqua; }
+        .col4 { background-color: aqua; }
+    }
+
 }    
+
+@media screen and (min-width: 600px) {
+    .Main {
+        .columns {
+            .col {
+                width: 45%;
+            }
+        }
+    }
+}
+@media screen and (min-width: 800px) {
+    .Main {
+        .columns {
+            .col {
+                width: 20%;
+            }
+        }
+    }
+}
