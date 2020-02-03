@@ -1,12 +1,11 @@
 body {
-    background-color: white;
+    background-color: rgb(58, 90, 105);
 }
 
-
-
-.Wrapper {
+.App {
+    //width: 800px;
+    min-width: 320px;
+    max-width: 1000px;
     padding: 20px;
     margin: 25px auto;
-    background-color: white;
-    border-radius: 5pxgit;
 }

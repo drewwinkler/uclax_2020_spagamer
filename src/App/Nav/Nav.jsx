@@ -1,45 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Nav.scss';
+import { NavLink } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Nav = () => {
 
-    const [showMenu, updateShowMenu] = useState(true);
+    const [showMenu, updateShowMenu] = useState(false);
 
+    // Click Event
     const handleHamburgerClick = () => {
-        console. log('You Hit the Hamburger');
-        
-        let timbuktu;
-
-        if (showMenu === true) {
-            timbuktu = false;
+        if (showMenu === false) {
+            updateShowMenu(true);
         } else {
-            timbuktu = true;
+            updateShowMenu(false);
         }
-        
-        updateShowMenu(timbuktu);
-        }
-    
+    }
 
+    //Window Resize Event
+    const handlewindowresize = () => {
+        if (window.innerWidth > 599) {
+            updateShowMenu(true);
+        } else {
+            updateShowMenu(false);
+        }
+    }
+
+    //Only when componet first mounts
+    useEffect(()=>{
+        window.addEventListener('resize', handlewindowresize);
+        handlewindowresize();
+    },[]);
 
     return (
         <nav className='Nav'>
-
-            <div 
-            className="hamburger" onClick={ handleHamburgerClick }>
+            
+            <div className="hamburger" on onClick={ handleHamburgerClick }>
                 <FontAwesomeIcon icon={ faBars } />
-            </div>
-            {
-                showMenu &&
-                <div className="links">
-                    <a href="#">Welcome</a>
-                    <a href="#">Services</a>
-                    <a href="#">Contact</a>
                 </div>
-            }
-
+                {
+                showMenu&&
+                <div className="links">
+                    <NavLink to='/' exact>Welcome</NavLink>
+                    <NavLink to='/services'>Services</NavLink>
+                    <NavLink to='/contact'> Contact </NavLink>
+                </div>
+                }
         </nav>
     )
 };

@@ -1,71 +1,81 @@
-.Nav {
-    background: grey;
+.Nav { 
+    background: aqua;
     padding: 20px;
-    border: solid 5px black;
-    margin-top: 5px;
+    margin: 10px;
+    border-radius: 5px;
 
     .hamburger {
-        background-color: white ;
-        display: block;
-
         width: 30px;
         height: 30px;
 
         position: absolute;
         right: 10px;
         top: 10px;
-        color: black;
+        color:white;
 
         svg {
             width: 100%;
             height: auto;
+            
         }
 
         &:hover {
             color: grey;
             cursor: pointer;
         }
-
+        
+        
+        display:block;
+        
     }
 
-    .links {
-        background-color: grey;
 
+    .links{
         text-align: center;
-
         a {
-            background-color: aqua;
-            color: white;
+            background-color: rgb(58, 90, 105);
+                color: white;
 
-            display: block;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 10px;
-            border: solid 2px black;
+                display:block;
+                padding: 20px;
+                border-radius: 5px;
+                margin: 10px;
+                
+                text-decoration: none;
+                text-transform: uppercase;
 
-            text-decoration: none;
-            text-transform:uppercase;
+                transition: all 1s;
 
-            transition: all .2s;
+                border: solid 2px white;
 
-            &:hover {
-                background-color: grey;
-            }
+                &:hover {
+                    border: solid 2px rgb(58, 90, 105);
+                    background-color: white;
+                    color: rgb(58, 90, 105);
+                }
+                &.active {
+                    border: solid 2px rgb(58, 90, 105);
+                    background-color: white;
+                    color: rgb(58, 90, 105);
+                }
         }
-
     }
 
 }
-
 @media screen and (min-width: 600px) {
-    .Nav {
+    .Nav{
         .hamburger{
             display: none;
         }
+
         .links {
-            a {
+            a{
                 display: inline-block;
             }
         }
     }
+}
+
+@media screen and (min-width: 800px) {
+
 }
