@@ -1,12 +1,15 @@
 import React from 'react';
-import './Pages.scss';
-import Tabbed from '../Tabbed/Tabbed.jsx'
+import '../Pages.scss';
+import Tabbed from './Tabbed/Tabbed.jsx'
+import Staff from './Staff/Staff.jsx'
 
 const Welcome = () => {
     return (
         <div className={ 'Pages Welcome' }>
             Welcome
             <Tabbed />
+
+            <Staff />
 
             <div className="columns">
                 <div className="col col1">Col1 change</div>
@@ -18,4 +21,4 @@ const Welcome = () => {
     );
 }
 
-export default Welcome
+export default Welcome;
