@@ -1,7 +1,7 @@
 import React from 'react';
 import './Services.scss';
 import '../Pages.scss';
-import  { serviceList } from './servicesArray.js'
+import  { serviceList } from './Services.js'
 
 const ServiceList = () => {
     console.log('serviceList', serviceList);

@@ -31,13 +31,13 @@ const Tabbed = () => {
         <div className={ 'Tabbed' }>
 
             <div className="tabs">
-                <div onClick={ () => { setCurrentTab(tabItems [0]) } } className={ isAbout }>About</div>
-                <div onClick={ () => { setCurrentTab(tabItems [1]) } } className={ isMission }>Mission</div>
-                <div onClick={ () => { setCurrentTab(tabItems [2]) } } className={ isVision }>Vision</div>
+                <div onClick={ () => { setCurrentTab(tabItems[0]) } } className={ isAbout }>About</div>
+                <div onClick={ () => { setCurrentTab(tabItems[1]) } } className={ isMission }>Mission</div>
+                <div onClick={ () => { setCurrentTab(tabItems[2]) } } className={ isVision }>Vision</div>
             </div>
 
             <div className="content">
-                <img src={ currentTab.image }/>
+                <img src={ currentTab.image } alt='Tabbed'/>
                 <h2>{ currentTab.title }</h2>
                 <p>{ currentTab.text }</p>
             </div>
