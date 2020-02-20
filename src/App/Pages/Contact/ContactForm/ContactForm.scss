@@ -2,6 +2,18 @@
     border: solid 1px white;
     padding: 20px;
 
+    &.form-invalid {
+        border: solid 2px red;
+        background-color: rgb(233, 160, 160);
+    }
+
+    .error-message {
+        border: solid 5px red;
+        background-color: orange;
+        padding: 20px;
+        margin-bottom: 50px;
+    }
+
     .form-group {
         margin-bottom: 20px;
         .left {
