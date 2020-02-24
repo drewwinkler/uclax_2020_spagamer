@@ -1,15 +1,29 @@
 import React from 'react';
 import './Services.scss';
 import '../Pages.scss';
-import  { serviceList } from './Services.js'
+import { useEffect, useState } from 'react';
+import API from '../../common/API';
 
 const ServiceList = () => {
-    console.log('serviceList', serviceList);
+
+    //1. Set Up State to keep track of data from server
+    const [serviceList, setServiceList] = useState([]);
+
+    //Only do this on mount
+    useEffect(() => {
+        //2. Retrive data from server
+        API.get('services/gallery').then((result) => {
+        //3. Update service with data from server
+        console.log('Services Server Response', result);
+        setServiceList(result.data);
+        });
+    }, [])
+
     return serviceList.map((serviceList, idx) => {
         return (
             <div key={ idx } className={ 'ServiceList'}>
-                <img src={ serviceList.img} alt={ serviceList.Title} />
-                <h3>{ serviceList.Title}</h3>
+                <img src={ serviceList.image} alt={ serviceList.title} />
+                <h3>{ serviceList.title}</h3>
             </div>
         );
     });

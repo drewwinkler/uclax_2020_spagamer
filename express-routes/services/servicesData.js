@@ -1,0 +1,25 @@
+module.exports = {
+    gallery: [
+        { image: '/img/Services/service-1.jpg', title: 'Service 1', category: 'Ammenities', description: 'A description of our service...' },
+        { image: '/img/Services/service-2.jpg', title: 'Service 2', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-3.jpg', title: 'Service 3', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-4.jpg', title: 'Service 4', category: 'Massage', description: 'A description of our service...' },
+        { image: '/img/Services/service-5.jpg', title: 'Service 5', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-6.jpg', title: 'Service 6', category: 'Ammenities', description: 'A description of our service...' },
+        { image: '/img/Services/service-7.jpg', title: 'Service 7', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-8.jpg', title: 'Service 8', category: 'Massage', description: 'A description of our service...' },
+        { image: '/img/Services/service-9.jpg', title: 'Service 9', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-10.jpg', title: 'Service 10', category: 'Ammenities', description: 'A description of our service...' },
+        { image: '/img/Services/service-11.jpg', title: 'Service 11', category: 'Ammenities', description: 'A description of our service...' },
+        { image: '/img/Services/service-12.jpg', title: 'Service 12', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-13.jpg', title: 'Service 13', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-14.jpg', title: 'Service 14', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-15.jpg', title: 'Service 15', category: 'Ammenities', description: 'A description of our service...' },
+        { image: '/img/Services/service-16.jpg', title: 'Service 16', category: 'Massage', description: 'A description of our service...' },
+        { image: '/img/Services/service-17.jpg', title: 'Service 17', category: 'Massage', description: 'A description of our service...' },
+        { image: '/img/Services/service-18.jpg', title: 'Service 18', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-19.jpg', title: 'Service 19', category: 'Hot Tub', description: 'A description of our service...' },
+        { image: '/img/Services/service-20.jpg', title: 'Service 20', category: 'Ammenities', description: 'A description of our service...' },
+    ],
+    categories: ['All', 'Massage', 'Hot Tub', 'Ammenities']
+}
