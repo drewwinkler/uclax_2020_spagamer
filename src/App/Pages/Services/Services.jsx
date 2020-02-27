@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 import './Services.scss';
 import '../Pages.scss';
-import { useEffect, useState } from 'react';
 import API from '../../common/API';
+import Service from './Service.jsx'
+
 
 const ServiceList = () => {
 
@@ -19,12 +20,9 @@ const ServiceList = () => {
         });
     }, [])
 
-    return serviceList.map((serviceList, idx) => {
+    return serviceList.map((singleService, idx) => {
         return (
-            <div key={ idx } className={ 'ServiceList'}>
-                <img src={ serviceList.image} alt={ serviceList.title} />
-                <h3>{ serviceList.title}</h3>
-            </div>
+            <Service key={idx} singleService={ singleService } />
         );
     });
 }
