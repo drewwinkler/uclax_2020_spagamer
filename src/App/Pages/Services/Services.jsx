@@ -3,39 +3,53 @@ import './Services.scss';
 import '../Pages.scss';
 import API from '../../common/API';
 import Service from './Service.jsx'
+import Categories from './Categories.jsx'
+import ServiceList from '.ServiceList.jsx'
 
 
-const ServiceList = () => {
-
-    //1. Set Up State to keep track of data from server
-    const [serviceList, setServiceList] = useState([]);
-
-    //Only do this on mount
-    useEffect(() => {
-        //2. Retrive data from server
-        API.get('services/gallery').then((result) => {
-        //3. Update service with data from server
-        console.log('Services Server Response', result);
-        setServiceList(result.data);
-        });
-    }, [])
-
+const ServiceList = ({serviceList, currCat}) => {
     return serviceList.map((singleService, idx) => {
+
+        if (currCat === 'All' || currCat === singleService.category){
         return (
-            <Service key={idx} singleService={ singleService } />
-        );
+                <Service key={idx} singleService={ singleService } />
+            );
+        }
     });
 }
 
+
 const Services = () => {
+
+    const [ serviceList, setServiceList ] = useState([ ]);
+    const [ categories, setCategories ] = useState([ ]);
+    const [ currCat, setCurrCat ] = useState('All');
+
+    useEffect(() => {
+        API.get('services/gallery').then((result) => {
+        console.log('Services Server Response', result);
+        setServiceList(result.data);
+        });
+
+
+        API.get('services/categories').then((result) => {
+            console.log('Categories Server Response', result);
+            setCategories(result.data);
+        });
+    },[] );
+
+
     return(
         <div className={ 'Services' }>
             <h2> Services</h2>
+            <Categories categories={ categories } currCat={ currCat } 
+            setCurrCat={ setCurrCat }
+            />
             <div className="container">
-            <ServiceList />
+            <ServiceList serviceList={ serviceList } currCat={ currCat} />
             </div>
         </div>
-    )
+    );
 }
 
 export default Services;

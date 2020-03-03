@@ -36,7 +36,7 @@ const Nav = () => {
     return (
         <nav className='Nav'>
             
-            <div className="hamburger" on onClick={ handleHamburgerClick }>
+            <div className="hamburger" onClick={ handleHamburgerClick }>
                 <FontAwesomeIcon icon={ faBars } />
                 </div>
                 {

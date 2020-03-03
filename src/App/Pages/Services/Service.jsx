@@ -20,7 +20,7 @@ const Service = (props) => {
                 src={ props.singleService.image } 
                 alt={ props.singleService.title } 
                 />
-                <h3>{ props.singleService.title}</h3>
+                <h3>{ props.singleService.title}: Category: { props.singleService.category }</h3>
                 <Lightbox 
                 show={ showLightbox } 
                 turnLightOff={turnLightOff}

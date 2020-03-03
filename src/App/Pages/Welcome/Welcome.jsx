@@ -1,12 +1,15 @@
 import React from 'react';
 import '../Pages.scss';
 import Tabbed from './Tabbed/Tabbed.jsx'
-import Staff from './Staff/Staff.jsx'
+import Staff  from './Staff/Staff.jsx';
+import Slideshow from './Slideshow/Slideshow.jsx';
 
 const Welcome = () => {
     return (
         <div className={ 'Pages Welcome' }>
-            Welcome
+            
+            <Slideshow />
+            
             <Tabbed />
 
             <Staff />

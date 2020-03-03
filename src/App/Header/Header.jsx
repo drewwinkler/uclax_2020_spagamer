@@ -5,7 +5,7 @@ import './Header.scss'; // another note
 // This is my component
 const Header = () => {
     return (
-        <header className={'Header'}>My Improved Header</header>
+        <header className={'Header'}>My Component Header</header>
     );
 }
 

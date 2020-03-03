@@ -53,7 +53,7 @@ const ContactForm = () => {
                 message: messageRef.current.value,
             }
 
-            API.post('sendmail', postData).then((result) => {
+            API.post('email/send', postData).then((result) => {
                 console.log('Posting the data', result);
             });
         } 
