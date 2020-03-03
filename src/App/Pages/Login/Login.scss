@@ -1,0 +1,33 @@
+.Login {
+
+    padding: 0px;
+
+    border: solid 2px red;
+    .row {
+        border: solid 2px green;
+    }
+    .column {
+        border: solid 2px blue;
+    }
+}
+
+// Medium Breakpoint
+@media screen and (min-width: 600px) {
+    .Login {
+        .row1 {
+                display: flex;
+                max-width: 1200px;
+                margin: auto;
+        
+        .column { min-height: 300px; }
+
+        .column1 {
+                flex: 1;
+                margin-right: 20px;
+        }
+        .comlumn2 {
+                flex: 2;
+            }
+        }
+    }
+}

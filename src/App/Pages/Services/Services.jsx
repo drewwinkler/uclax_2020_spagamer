@@ -2,21 +2,8 @@ import React, { useEffect, useState }  from 'react';
 import './Services.scss';
 import '../Pages.scss';
 import API from '../../common/API';
-import Service from './Service.jsx'
 import Categories from './Categories.jsx'
-import ServiceList from '.ServiceList.jsx'
-
-
-const ServiceList = ({serviceList, currCat}) => {
-    return serviceList.map((singleService, idx) => {
-
-        if (currCat === 'All' || currCat === singleService.category){
-        return (
-                <Service key={idx} singleService={ singleService } />
-            );
-        }
-    });
-}
+import ServiceList from './ServiceList.jsx'
 
 
 const Services = () => {

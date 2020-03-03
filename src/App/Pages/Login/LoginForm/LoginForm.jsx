@@ -1,20 +1,21 @@
 import React, { useRef, useState } from 'react';
-import './ContactForm.scss';
+import './LoginForm.scss';
 import { emailCheck } from '../../../common/utilities.js';
 import classnames from 'classnames';
 import keycode from 'keycode';
 import API from '../../../common/API.js'
 
-const ContactForm = () => {
+const LoginForm = () => {
 
     //KeepTrack of State
-    const [emailIsValid,updateEmailIsValid] = useState(true);
+    const [usernameIsValid,updateUsernameIsValid] = useState(true);
     const [formIsValid, updateFormIsValid] = useState(true);
+    const [passwordIsValid, updatePasswordIsValid] = useState(true);
     const [errors, updateErrorsArray] = useState([]);
 
     //refs  : :  Giving React's Virtual DOM access to the Physical DOM elements on the page
-    const emailRef = useRef();
-    const messageRef = useRef();
+    const usernameRef = useRef();
+    const passwordRef = useRef();
 
     const HandleFormSubmit = () => {
         console.log('You Clicked Me');
@@ -22,20 +23,21 @@ const ContactForm = () => {
         let errorMessages = [];
 
         // Validate the user filled in the form
-        if (emailRef.current.value.length < 4) {
+        if (usernameRef.current.value.length < 3 || !emailCheck(usernameRef.current.value) ) {
+            updateUsernameIsValid(false);
             errorMessages.push({
-                message: 'You forgot to fill out the Email field',
+                message: 'The email does not appear to be valid',
             })
+        } else {
+            updateUsernameIsValid(true);
         }
-        if (!emailCheck(emailRef.current.value)) {
+        if(passwordRef.current.value.length < 1) {
+            updatePasswordIsValid(false);
             errorMessages.push({
-                message: 'The email you provided is invaild',
+                message: 'Your Password is Incorrect',
             })
-        }
-        if(messageRef.current.value.length < 1) {
-            errorMessages.push({
-                message: 'You forgot to fill out the Message field',
-            })
+        } else {
+            updatePasswordIsValid(true);
         }
 
         updateErrorsArray(errorMessages);
@@ -49,25 +51,25 @@ const ContactForm = () => {
             console.log('Post the data');
 
             const postData = {
-                email: emailRef.current.value,
-                message: messageRef.current.value,
+                username: usernameRef.current.value,
+                password: passwordRef.current.value,
             }
 
-            API.post('email/send', postData).then((result) => {
+            API.post('login/valid', postData).then((result) => {
                 console.log('Posting the data', result);
             });
         } 
     }
 
-    const validateEmail = () => {
-        const emailValue = emailRef.current.value;
+    const validateUsername = () => {
+        const usernameValue = usernameRef.current.value;
         
-        console.log('Validating email',emailValue);
+        console.log('Validating Username',usernameValue);
 
-        if (emailValue.length > 3 && !emailCheck(emailValue)) {
-            updateEmailIsValid(false);
+        if (usernameValue.length > 3 && !emailCheck(usernameValue)) {
+            updateUsernameIsValid(false);
         } else {
-            updateEmailIsValid(true);
+            updateUsernameIsValid(true);
         }
     }
 
@@ -94,7 +96,7 @@ const ContactForm = () => {
     //const theClassname = (formIsValid) ? 'ContactForm form-valid':'ContactForm form-invalid';
 
     const theClassname = classnames({
-        'ContactForm':true,
+        'LoginForm':true,
         'form-valid': formIsValid,
         'form-invalid': !formIsValid,
     });
@@ -113,28 +115,34 @@ const ContactForm = () => {
 
 
             <div className="form-group">
-                    <div className="left">
-                        <label htmlFor="email">Email</label>
+                <div className="left">
+                    <label htmlFor="email">Email</label>
                 </div>
                 <div className="right">
                     <input 
-                    className={ emailIsValid ? '':'invalid'}
-                    ref={ emailRef } 
-                    name="email" 
-                    id="email" 
-                    placeholder="email@somedomain.com" 
-                    onChange={ validateEmail} 
+                        className={ usernameIsValid ? '':'invalid'}
+                        ref={ usernameRef } 
+                        name="email" 
+                        id="email" 
+                        placeholder="email@somedomain.com" 
+                        onChange={ validateUsername } 
                     />
                 </div>
             </div>
             <div className="form-group">
                 <div className="left">
-                    <label htmlFor="Message"> Message</label>
+                    <label htmlFor="password">Password</label>
                 </div>
                 <div className="right">
-                    <textarea ref={ messageRef } name="message" id="message" placeholder="your message goes here." />
+                    <input 
+                        className={ passwordIsValid ? '':'invalid'}
+                        ref={ passwordRef } 
+                        name="password" 
+                        id="password"  
+                        type="password"  
+                    />
+                </div>
             </div>
-        </div>
             <div className="form-group">
                 <div className="left"/>
                 <div className="right">
@@ -142,11 +150,11 @@ const ContactForm = () => {
                         tab-index={ 0 }
                         onClick={ HandleFormSubmit }
                         onKeyDown={ handleKeyDown }
-                    >Send Email</button>
+                    >Log In</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default ContactForm;
+export default LoginForm;

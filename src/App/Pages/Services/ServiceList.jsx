@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ServiceList from './ServiceList.jsx'
+import Service from './Service.jsx';
 
 const ServiceList = ({serviceList, currCat}) => {
     return serviceList.map((singleService, idx) => {
@@ -10,5 +10,8 @@ const ServiceList = ({serviceList, currCat}) => {
                 <Service key={idx} singleService={ singleService } />
             );
         }
+        return false;
     });
 }
+
+export default ServiceList;

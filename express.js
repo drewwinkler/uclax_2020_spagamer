@@ -32,6 +32,7 @@ app.use('/staff', routes.staff);
 app.use('/services', routes.services);
 app.use('/slides', routes.slides);
 app.use('/email', routes.email);
+app.use('/login', routes.login);
 
 // Catchall for requests that do not match our routing
 app.get('*', (req,res) =>{
