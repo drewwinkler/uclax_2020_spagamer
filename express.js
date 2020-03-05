@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 /*---------------------------
 | !IMPORTANT :: Should not be done in Production, only for local dev
@@ -28,15 +28,15 @@ app.use((request, response, next) => {
 | Route Collections
 ---------------------------*/
 const routes = require('./express-routes/index.js');
-app.use('/staff', routes.staff);
-app.use('/services', routes.services);
-app.use('/slides', routes.slides);
-app.use('/email', routes.email);
-app.use('/login', routes.login);
+app.use('/api/staff', routes.staff);
+app.use('/api/services', routes.services);
+app.use('/api/slides', routes.slides);
+app.use('/api/email', routes.email);
+app.use('/api/login', routes.login);
 
 // Catchall for requests that do not match our routing
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/public/missing.html'));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 // Heroku hook to use dynamic port binding
